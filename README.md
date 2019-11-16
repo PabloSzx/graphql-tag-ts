@@ -1,27 +1,71 @@
-# TSDX Bootstrap
+# graphql-tag-ts
 
-This project was bootstrapped with [TSDX](https://github.com/jaredpalmer/tsdx).
+[![npm version](https://badge.fury.io/js/graphql-tag-ts.svg)](https://badge.fury.io/js/graphql-tag-ts)
 
-## Local Development
+This project is basically **strongly typed** [graphql-tag](https://github.com/apollographql/graphql-tag) using [Module augmentation](https://www.typescriptlang.org/docs/handbook/declaration-merging.html).
 
-Below is a list of commands you will probably find useful.
+Just installing this package you will be able to inject the types in your query declarations, no need to declaring them elsewhere or having to declaring them when calling your queries.
 
-### `npm start` or `yarn start`
+> queries file
 
-Runs the project in development/watch mode. Your project will be rebuilt upon changes. TSDX has a special logger for you convenience. Error messages are pretty printed and formatted for compatibility VS Code's Problems tab.
+```typescript
+import gql from 'graphql-tag-ts';
+import gql_two from 'graphql-tag'; // you can import either version, this library is only doing module augmentation
 
-<img src="https://user-images.githubusercontent.com/4060187/52168303-574d3a00-26f6-11e9-9f3b-71dbec9ebfcb.gif" width="600" />
+export const query_one = gql<
+  { hello: { world: string } },
+  { variable: string }
+>`
+  query($variable: String!) {
+    hello {
+      world
+    }
+  }
+`;
+export const query_two = gql_two<
+  { hello: { world: string } },
+  { variable: string }
+>`
+  query($variable: String!) {
+    hello {
+      world
+    }
+  }
+`;
+```
 
-Your library will be rebuilt if you make edits.
+> application
 
-### `npm run build` or `yarn build`
+```typescript
+import { useQuery } from '@apollo/react-hooks';
+import { query_one } from './queries';
 
-Bundles the package to the `dist` folder.
-The package is optimized and bundled with Rollup into multiple formats (CommonJS, UMD, and ES Module).
+export default () => {
+  // "data" is strongly typed!
+  // data = { hello: { world: string } } | undefined
+  const { data, loading } = useQuery(query_one, {
+    // "variables" is strongly typed too!
+    // variables = { variable: string } | undefined
+    variables: {
+      variable: 'HelloWorld!',
+    },
+  });
 
-<img src="https://user-images.githubusercontent.com/4060187/52168322-a98e5b00-26f6-11e9-8cf6-222d716b75ef.gif" width="600" />
+  return <div>{loading ? 'Loading...' : data?.hello.world ?? 'Not found'}</div>;
+};
+```
 
-### `npm test` or `yarn test`
+## Functions available
 
-Runs the test watcher (Jest) in an interactive mode.
-By default, runs tests related to files changed since the last commit.
+---
+
+The module augmentation needs to be specified for every function that is required, so as is right now we are augmenting:
+
+From **@apollo/react-hooks**
+
+- useQuery
+- useMutation
+- useLazyQuery
+- useSubscription
+
+### If you want another library / function to be added please feel free to request in it [the issues](https://github.com/PabloSzx/graphql-tag-ts/issues) or send a pull request.
