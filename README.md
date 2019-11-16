@@ -19,8 +19,10 @@ Just installing this package you will be able to inject the types in your query 
 > queries file
 
 ```typescript
-import gql from 'graphql-tag-ts';
-import gql_two from 'graphql-tag'; // you can import either version, this library is only doing module augmentation
+import gql from "graphql-tag-ts";
+import gql_two from "graphql-tag";
+// you can import either version, this library is only doing module augmentation
+// but using graphql-tag-ts is a safe bet
 
 export const query_one = gql<
   { hello: { world: string } },
@@ -47,8 +49,8 @@ export const query_two = gql_two<
 > application
 
 ```typescript
-import { useQuery } from '@apollo/react-hooks';
-import { query_one } from './queries';
+import { useQuery } from "@apollo/react-hooks";
+import { query_one } from "./queries";
 
 export default () => {
   // "data" is strongly typed!
@@ -57,11 +59,11 @@ export default () => {
     // "variables" is strongly typed too!
     // variables = { variable: string } | undefined
     variables: {
-      variable: 'HelloWorld!',
-    },
+      variable: "HelloWorld!"
+    }
   });
 
-  return <div>{loading ? 'Loading...' : data?.hello.world ?? 'Not found'}</div>;
+  return <div>{loading ? "Loading..." : data?.hello.world ?? "Not found"}</div>;
 };
 ```
 
