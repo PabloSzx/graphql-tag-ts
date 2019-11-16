@@ -2,6 +2,16 @@
 
 [![npm version](https://badge.fury.io/js/graphql-tag-ts.svg)](https://badge.fury.io/js/graphql-tag-ts)
 
+```shell
+yarn add graphql-tag-ts
+```
+
+or
+
+```shell
+npm install graphql-tag-ts
+```
+
 This project is basically **strongly typed** [graphql-tag](https://github.com/apollographql/graphql-tag) using [Module augmentation](https://www.typescriptlang.org/docs/handbook/declaration-merging.html).
 
 Just installing this package you will be able to inject the types in your query declarations, no need to declaring them elsewhere or having to declaring them when calling your queries.
