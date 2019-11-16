@@ -19,10 +19,13 @@ Just installing this package you will be able to inject the types in your query 
 > queries file
 
 ```typescript
-import gql from "graphql-tag-ts";
+import gql, { DocumentNode } from "graphql-tag-ts";
 import gql_two from "graphql-tag";
-// you can import either version, this library is only doing module augmentation
-// but using graphql-tag-ts is a safe bet
+/**
+ * You can import either version, this library
+ * is only doing module augmentation
+ * but using graphql-tag-ts is a safe bet
+ */
 
 export const query_one = gql<
   { hello: { world: string } },
@@ -34,10 +37,17 @@ export const query_one = gql<
     }
   }
 `;
-export const query_two = gql_two<
+
+/**
+ * You also can cast the DocumentNode type to the object.
+ * This method is better if you don't want to lose
+ * GraphQL query highlighting in your editor
+ */
+
+export const query_two: DocumentNode<
   { hello: { world: string } },
   { variable: string }
->`
+> = gql`
   query($variable: String!) {
     hello {
       world

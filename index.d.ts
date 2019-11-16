@@ -7,7 +7,7 @@ import {
     SubscriptionHookOptions
 } from "@apollo/react-hooks";
 
-declare interface DocumentNode<D = any, V = any> {
+export interface DocumentNode<D = any, V = any> {
   readonly kind: "Document";
   readonly loc?: Location;
   readonly definitions: ReadonlyArray<DefinitionNode>;
