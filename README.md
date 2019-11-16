@@ -90,4 +90,4 @@ From **@apollo/react-hooks**
 - useLazyQuery
 - useSubscription
 
-### If you want another library / function to be added please feel free to request in it [the issues](https://github.com/PabloSzx/graphql-tag-ts/issues) or send a pull request.
+### If you want another library / function to be added please feel free to request it in [the issues](https://github.com/PabloSzx/graphql-tag-ts/issues) or send a pull request.
