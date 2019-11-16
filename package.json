@@ -1,0 +1,50 @@
+{
+  "name": "graphql-tag-ts",
+  "version": "0.1.3",
+  "repository": "https://github.com/PabloSzx/graphql-tag-ts",
+  "license": "MIT",
+  "author": "PabloSzx",
+  "files": [
+    "dist"
+  ],
+  "main": "dist/index.js",
+  "module": "dist/graphql-tag-ts-tsdx.esm.js",
+  "typings": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsdx build",
+    "lint": "tsdx lint",
+    "start": "tsdx watch",
+    "test": "tsdx test"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "tsdx lint"
+    }
+  },
+  "prettier": {
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "dependencies": {
+    "graphql-tag": "^2.10.1"
+  },
+  "devDependencies": {
+    "@apollo/react-common": "^3.1.3",
+    "@apollo/react-hooks": "^3.1.3",
+    "@types/jest": "^24.0.23",
+    "apollo-client": "^2.6.4",
+    "graphql": "^14.5.8",
+    "husky": "^3.0.9",
+    "tsdx": "^0.11.0",
+    "tslib": "^1.10.0",
+    "typescript": "^3.7.2"
+  },
+  "peerDependencies": {
+    "@apollo/react-common": "*",
+    "@apollo/react-hooks": "*",
+    "apollo-client": "*",
+    "graphql": "*"
+  }
+}
