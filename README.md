@@ -96,3 +96,19 @@ From [**@pablosz/apollo-server-integration-testing**](https://www.npmjs.com/pack
 - mutate
 
 ### If you want another library / function to be added please feel free to request it in [the issues](https://github.com/PabloSzx/graphql-tag-ts/issues) or send a pull request.
+
+### Usage with [babel-plugin-graphql-tag](https://github.com/gajus/babel-plugin-graphql-tag)
+
+To use [**babel-plugin-graphql-tag**](https://github.com/gajus/babel-plugin-graphql-tag) (*highly recommended*) all you need to specify is the **importName** configuration option in your babel configuration.
+
+> .babelrc
+```javascript
+{
+  ...
+  "plugins": [
+    ...
+    ["babel-plugin-graphql-tag", { "importName": "graphql-tag-ts" }]
+  ]
+}
+
+```
