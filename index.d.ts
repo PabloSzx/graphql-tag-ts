@@ -81,3 +81,17 @@ declare module "@pablosz/apollo-server-integration-testing" {
     setOptions: TestSetOptions;
   };
 }
+
+declare module "apollo-server-integration-testing" {
+  type Query = <T extends object = {}, V extends object = {}>(
+    operation: string | DocumentNode<T, V>,
+    variablesOptions?: Options<V>
+  ) => Promise<{ data: T }>;
+  function createTestClient(
+    config: TestClientConfig
+  ): {
+    query: Query;
+    mutate: Query;
+    setOptions: TestSetOptions;
+  };
+}
