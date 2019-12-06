@@ -3,9 +3,18 @@ import { DefinitionNode, Location } from "graphql";
 
 import { OperationVariables, QueryResult } from "@apollo/react-common";
 import {
-    LazyQueryHookOptions, MutationHookOptions, MutationTuple, QueryHookOptions, QueryLazyOptions,
-    SubscriptionHookOptions
+  LazyQueryHookOptions,
+  MutationHookOptions,
+  MutationTuple,
+  QueryHookOptions,
+  QueryLazyOptions,
+  SubscriptionHookOptions,
 } from "@apollo/react-hooks";
+import {
+  Options,
+  TestClientConfig,
+  TestSetOptions,
+} from "@pablosz/apollo-server-integration-testing";
 
 export interface DocumentNode<D = any, V = any> {
   readonly kind: "Document";
@@ -56,5 +65,19 @@ declare module "@apollo/react-hooks" {
     loading: boolean;
     data?: TData | undefined;
     error?: ApolloError | undefined;
+  };
+}
+
+declare module "@pablosz/apollo-server-integration-testing" {
+  type Query = <T extends object = {}, V extends object = {}>(
+    operation: string | DocumentNode<T, V>,
+    variablesOptions?: Options<V>
+  ) => Promise<{ data: T }>;
+  function createTestClient(
+    config: TestClientConfig
+  ): {
+    query: Query;
+    mutate: Query;
+    setOptions: TestSetOptions;
   };
 }

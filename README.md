@@ -83,11 +83,16 @@ export default () => {
 
 The module augmentation needs to be specified for every function that is required, so as is right now we are augmenting:
 
-From **@apollo/react-hooks**
+From [**@apollo/react-hooks**](https://www.npmjs.com/package/@apollo/react-hooks)
 
 - useQuery
 - useMutation
 - useLazyQuery
 - useSubscription
+
+From [**@pablosz/apollo-server-integration-testing**](https://www.npmjs.com/package/@pablosz/apollo-server-integration-testing)
+
+- query
+- mutate
 
 ### If you want another library / function to be added please feel free to request it in [the issues](https://github.com/PabloSzx/graphql-tag-ts/issues) or send a pull request.
