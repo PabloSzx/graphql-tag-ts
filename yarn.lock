@@ -377,7 +377,7 @@ apollo-server-caching@^0.5.0:
   dependencies:
     lru-cache "^5.0.0"
 
-apollo-server-core@^2.8.1, apollo-server-core@^2.9.13:
+apollo-server-core@^2.9.13:
   version "2.9.13"
   resolved "https://registry.yarnpkg.com/apollo-server-core/-/apollo-server-core-2.9.13.tgz#29fee69be56d30605b0a06cd755fd39e0409915f"
   integrity sha512-iXTGNCtouB0Xe37ySovuZO69NBYOByJlZfUc87gj0pdcz0WbdfUp7qUtNzy3onp63Zo60TFkHWhGNcBJYFluzw==
@@ -417,7 +417,7 @@ apollo-server-errors@^2.3.4:
   resolved "https://registry.yarnpkg.com/apollo-server-errors/-/apollo-server-errors-2.3.4.tgz#b70ef01322f616cbcd876f3e0168a1a86b82db34"
   integrity sha512-Y0PKQvkrb2Kd18d1NPlHdSqmlr8TgqJ7JQcNIfhNDgdb45CnqZlxL1abuIRhr8tiw8OhVOcFxz2KyglBi8TKdA==
 
-apollo-server-express@^2.8.1, apollo-server-express@^2.9.13:
+apollo-server-express@^2.9.13:
   version "2.9.13"
   resolved "https://registry.yarnpkg.com/apollo-server-express/-/apollo-server-express-2.9.13.tgz#abb00bcf85d86a6e0e9105ce3b7fae9a7748156b"
   integrity sha512-M306e07dpZ8YpZx4VBYa0FWlt+wopj4Bwn0Iy1iJ6VjaRyGx2HCUJvLpHZ+D0TIXtQ2nX3DTYeOouVaDDwJeqQ==
@@ -439,16 +439,15 @@ apollo-server-express@^2.8.1, apollo-server-express@^2.9.13:
     subscriptions-transport-ws "^0.9.16"
     type-is "^1.6.16"
 
-apollo-server-integration-testing@latest:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/apollo-server-integration-testing/-/apollo-server-integration-testing-2.2.0.tgz#747ed712da2b74840058b6429652f0e69ce99fa9"
-  integrity sha512-wc8ti3zlNJZTi+Sw3BD/i5hVe9ejZmvBbnCY6KHO2PROXc0zZt9ZnBdRSEN5BZO06dm9NYg8Bn3MVGuQnYoHLA==
+apollo-server-integration-testing@^2.3.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/apollo-server-integration-testing/-/apollo-server-integration-testing-2.3.0.tgz#4fac349fd9a62d4611c85521a7c53f60865a7037"
+  integrity sha512-m0fyW7DAKwbb6m9osH6JaBjMiBO1UKUAUMQG0SVWBq4QjDyDIRFfwR2jpOnyVhu0h3buFjzkzsp1bZWLUMxLUQ==
   dependencies:
-    apollo-server-core "^2.8.1"
-    apollo-server-express "^2.8.1"
+    apollo-server-core "^2.9.13"
+    apollo-server-express "^2.9.13"
     express "^4.17.1"
-    node-mocks-http "^1.7.6"
-    typescript "^3.5.3"
+    node-mocks-http "^1.8.0"
 
 apollo-server-plugin-base@^0.6.8:
   version "0.6.8"
@@ -932,7 +931,7 @@ node-fetch@^2.1.2, node-fetch@^2.2.0:
   resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.6.0.tgz#e633456386d4aa55863f676a7ab0daa8fdecb0fd"
   integrity sha512-8dG4H5ujfvFiqDmVu9fQ5bOHUC15JMjMY/Zumv26oOvvVJjM67KF8koCWIabKQ1GJIa9r2mMZscBq/TbdOcmNA==
 
-node-mocks-http@^1.7.6, node-mocks-http@^1.8.0:
+node-mocks-http@^1.8.0:
   version "1.8.0"
   resolved "https://registry.yarnpkg.com/node-mocks-http/-/node-mocks-http-1.8.0.tgz#201a882bd1f8473de6a14bf41850d373404fde32"
   integrity sha512-A6YB8+sTiHZPTPf1KfwZ3sAQYSSNJTWd762IOptAmM2d6XUQ9Q1wMh+uJ7a7n2Vy6NKmODfZArqX6Rbmlg+8Fw==
@@ -1149,7 +1148,7 @@ type-is@^1.6.16, type-is@^1.6.18, type-is@~1.6.17, type-is@~1.6.18:
     media-typer "0.3.0"
     mime-types "~2.1.24"
 
-typescript@^3.5.3, typescript@^3.7.3:
+typescript@^3.7.3:
   version "3.7.3"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.7.3.tgz#b36840668a16458a7025b9eabfad11b66ab85c69"
   integrity sha512-Mcr/Qk7hXqFBXMN7p7Lusj1ktCBydylfQM/FZCk5glCNQJrCUKPkMHdo9R0MTFWsC/4kPFvDS0fDPvukfCkFsw==

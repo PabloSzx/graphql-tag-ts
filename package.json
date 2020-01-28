@@ -1,6 +1,6 @@
 {
   "name": "graphql-tag-ts",
-  "version": "0.1.12",
+  "version": "0.1.14",
   "keywords": [
     "apollo",
     "gql",
@@ -24,13 +24,14 @@
   "devDependencies": {
     "@apollo/react-common": "^3.1.3",
     "@apollo/react-hooks": "^3.1.3",
-    "@pablosz/apollo-server-integration-testing": "^2.3.5",
     "apollo-client": "^2.6.4",
-    "apollo-server-integration-testing": "latest",
+    "apollo-server-integration-testing": "^2.3.0",
     "graphql": "^14.5.8",
     "typescript": "^3.7.3"
   },
   "peerDependencies": {
+    "@apollo/react-hooks": "^3.1.3",
+    "apollo-server-integration-testing": "^2.3.0",
     "graphql": "*"
   }
 }

@@ -90,7 +90,7 @@ From [**@apollo/react-hooks**](https://www.npmjs.com/package/@apollo/react-hooks
 - useLazyQuery
 - useSubscription
 
-From [**@pablosz/apollo-server-integration-testing**](https://www.npmjs.com/package/@pablosz/apollo-server-integration-testing)
+From [**apollo-server-integration-testing**](https://github.com/zapier/apollo-server-integration-testing)
 
 - query
 - mutate
@@ -101,9 +101,10 @@ From [**@pablosz/apollo-server-integration-testing**](https://www.npmjs.com/pack
 
 ---
 
-To use [**babel-plugin-graphql-tag**](https://github.com/gajus/babel-plugin-graphql-tag) (*highly recommended*) all you need to specify is the **importName** configuration option in your babel configuration.
+To use [**babel-plugin-graphql-tag**](https://github.com/gajus/babel-plugin-graphql-tag) (_highly recommended_) all you need to specify is the **importName** configuration option in your babel configuration.
 
 > .babelrc
+
 ```javascript
 {
   ...
