@@ -8,12 +8,12 @@ import {
   MutationTuple,
   QueryHookOptions,
   QueryLazyOptions,
-  SubscriptionHookOptions
+  SubscriptionHookOptions,
 } from "@apollo/react-hooks";
 import {
   Options,
   TestClientConfig,
-  TestSetOptions
+  TestSetOptions,
 } from "apollo-server-integration-testing";
 
 export interface DocumentNode<D = any, V = any> {
@@ -42,24 +42,44 @@ declare module "graphql-tag" {
   function disableFragmentWarnings(): void;
 }
 declare module "@apollo/react-hooks" {
-  function useQuery<TData = any, TVariables = OperationVariables>(
+  function useQuery<
+    TData = any,
+    TVariables = OperationVariables,
+    TData2 = TData,
+    TVariables2 = TVariables
+  >(
     query: DocumentNode<TData, TVariables>,
-    options?: QueryHookOptions<TData, TVariables>
+    options?: QueryHookOptions<TData2, TVariables2>
   ): QueryResult<TData, TVariables>;
-  function useMutation<TData = any, TVariables = OperationVariables>(
+  function useMutation<
+    TData = any,
+    TVariables = OperationVariables,
+    TData2 = TData,
+    TVariables2 = TVariables
+  >(
     mutation: DocumentNode<TData, TVariables>,
-    options?: MutationHookOptions<TData, TVariables>
+    options?: MutationHookOptions<TData2, TVariables2>
   ): MutationTuple<TData, TVariables>;
-  function useLazyQuery<TData = any, TVariables = OperationVariables>(
+  function useLazyQuery<
+    TData = any,
+    TVariables = OperationVariables,
+    TData2 = TData,
+    TVariables2 = TVariables
+  >(
     query: DocumentNode<TData, TVariables>,
-    options?: LazyQueryHookOptions<TData, TVariables>
+    options?: LazyQueryHookOptions<TData2, TVariables2>
   ): [
     (options?: QueryLazyOptions<TVariables> | undefined) => void,
     QueryResult<TData, TVariables>
   ];
-  function useSubscription<TData = any, TVariables = OperationVariables>(
+  function useSubscription<
+    TData = any,
+    TVariables = OperationVariables,
+    TData2 = TData,
+    TVariables2 = TVariables
+  >(
     subscription: DocumentNode<TData, TVariables>,
-    options?: SubscriptionHookOptions<TData, TVariables>
+    options?: SubscriptionHookOptions<TData2, TVariables2>
   ): {
     variables: TVariables | undefined;
     loading: boolean;
