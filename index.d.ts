@@ -10,11 +10,6 @@ import {
   QueryLazyOptions,
   SubscriptionHookOptions,
 } from "@apollo/react-hooks";
-import {
-  Options,
-  TestClientConfig,
-  TestSetOptions,
-} from "apollo-server-integration-testing";
 
 export interface DocumentNode<D = any, V = any> {
   readonly kind: "Document";
@@ -91,13 +86,13 @@ declare module "@apollo/react-hooks" {
 declare module "apollo-server-integration-testing" {
   type Query = <T extends object = {}, V extends object = {}>(
     operation: string | DocumentNode<T, V>,
-    variablesOptions?: Options<V>
+    variablesOptions?: import("apollo-server-integration-testing").Options<V>
   ) => Promise<{ data: T }>;
   function createTestClient(
-    config: TestClientConfig
+    config: import("apollo-server-integration-testing").TestClientConfig
   ): {
-    query: Query;
-    mutate: Query;
-    setOptions: TestSetOptions;
+    query: import("apollo-server-integration-testing").Query;
+    mutate: import("apollo-server-integration-testing").Query;
+    setOptions: import("apollo-server-integration-testing").TestSetOptions;
   };
 }
