@@ -13,14 +13,17 @@
   "license": "MIT",
   "author": "PabloSzx",
   "main": "index.js",
+  "module": "index.mjs",
   "types": "index.d.ts",
   "files": [
     "index.js",
-    "index.d.ts"
+    "index.d.ts",
+    "index.mjs"
   ],
   "resolutions": {
     "apollo-server-core": "^2.15.0",
-    "apollo-server-express": "^2.15.0"
+    "apollo-server-express": "^2.15.0",
+    "graphql": "^15.2.0"
   },
   "dependencies": {
     "graphql-tag": "^2.10.3"
@@ -30,12 +33,12 @@
     "@apollo/react-hooks": "^3.1.5",
     "apollo-client": "^2.6.10",
     "apollo-server-integration-testing": "^2.3.0",
-    "graphql": "^14.5.8",
+    "graphql": "^15.2.0",
     "typescript": "^3.9.5"
   },
   "peerDependencies": {
     "@apollo/react-hooks": "^3.1.5",
     "apollo-server-integration-testing": "^2.3.0",
-    "graphql": "*"
+    "graphql": "^15.0.0"
   }
 }

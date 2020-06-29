@@ -1,2 +1,1 @@
-var gql = require("graphql-tag");
-module.exports = gql;
+module.exports = require("graphql-tag");

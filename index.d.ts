@@ -1,26 +1,23 @@
-import { ApolloError } from "apollo-client";
 import { DefinitionNode, Location } from "graphql";
 
-import { OperationVariables, QueryResult } from "@apollo/react-common";
-import {
-  LazyQueryHookOptions,
-  MutationHookOptions,
-  MutationTuple,
-  QueryHookOptions,
-  QueryLazyOptions,
-  SubscriptionHookOptions,
-} from "@apollo/react-hooks";
+type DefaultOperationVariables = {
+  [x: string]: any;
+};
 
 export interface DocumentNode<D = any, V = any> {
   readonly kind: "Document";
   readonly loc?: Location;
   readonly definitions: ReadonlyArray<DefinitionNode>;
 }
-declare const _default: <D = any, V = any>(
-  literals: any,
+
+export * from "graphql-tag";
+
+declare const gql: <D = any, V = any>(
+  literals: ReadonlyArray<string> | Readonly<string>,
   ...placeholders: any[]
 ) => DocumentNode<D, V>;
-export default _default;
+export default gql;
+
 declare module "graphql" {
   interface DocumentNode<D = any, V = any> {
     readonly kind: "Document";
@@ -30,56 +27,56 @@ declare module "graphql" {
 }
 declare module "graphql-tag" {
   export default function gql<D = any, V = any>(
-    literals: any,
+    literals: ReadonlyArray<string> | Readonly<string>,
     ...placeholders: any[]
   ): DocumentNode<D, V>;
-  function resetCaches(): void;
-  function disableFragmentWarnings(): void;
+  export function resetCaches(): void;
+  export function disableFragmentWarnings(): void;
+  export function enableExperimentalFragmentVariables(): void;
+  export function disableExperimentalFragmentVariables(): void;
 }
 declare module "@apollo/react-hooks" {
-  function useQuery<
-    TData = any,
-    TVariables = OperationVariables,
-    TData2 = TData,
-    TVariables2 = TVariables
-  >(
+  export function useQuery<TData = any, TVariables = DefaultOperationVariables>(
     query: DocumentNode<TData, TVariables>,
-    options?: QueryHookOptions<TData2, TVariables2>
-  ): QueryResult<TData, TVariables>;
-  function useMutation<
+    options?: import("@apollo/react-hooks").QueryHookOptions<TData, TVariables>
+  ): import("@apollo/react-common").QueryResult<TData, TVariables>;
+
+  export function useMutation<
     TData = any,
-    TVariables = OperationVariables,
-    TData2 = TData,
-    TVariables2 = TVariables
+    TVariables = DefaultOperationVariables
   >(
     mutation: DocumentNode<TData, TVariables>,
-    options?: MutationHookOptions<TData2, TVariables2>
-  ): MutationTuple<TData, TVariables>;
-  function useLazyQuery<
+    options?: import("@apollo/react-hooks").MutationHookOptions<
+      TData,
+      TVariables
+    >
+  ): import("@apollo/react-hooks").MutationTuple<TData, TVariables>;
+
+  export function useLazyQuery<
     TData = any,
-    TVariables = OperationVariables,
-    TData2 = TData,
-    TVariables2 = TVariables
+    TVariables = DefaultOperationVariables
   >(
     query: DocumentNode<TData, TVariables>,
-    options?: LazyQueryHookOptions<TData2, TVariables2>
-  ): [
-    (options?: QueryLazyOptions<TVariables> | undefined) => void,
-    QueryResult<TData, TVariables>
-  ];
-  function useSubscription<
+    options?: import("@apollo/react-hooks").LazyQueryHookOptions<
+      TData,
+      TVariables
+    >
+  ): import("@apollo/react-hooks").QueryTuple<TData, TVariables>;
+
+  export function useSubscription<
     TData = any,
-    TVariables = OperationVariables,
-    TData2 = TData,
-    TVariables2 = TVariables
+    TVariables = DefaultOperationVariables
   >(
     subscription: DocumentNode<TData, TVariables>,
-    options?: SubscriptionHookOptions<TData2, TVariables2>
+    options?: import("@apollo/react-hooks").SubscriptionHookOptions<
+      TData,
+      TVariables
+    >
   ): {
     variables: TVariables | undefined;
     loading: boolean;
     data?: TData | undefined;
-    error?: ApolloError | undefined;
+    error?: import("apollo-client").ApolloError | undefined;
   };
 }
 
