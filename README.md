@@ -1,5 +1,7 @@
 # graphql-tag-ts
 
+# DEPRECATED IN FAVOR https://github.com/dotansimha/graphql-typed-document-node and included TypedQueryDocumentNode in graphql-js
+
 [![npm version](https://badge.fury.io/js/graphql-tag-ts.svg)](https://badge.fury.io/js/graphql-tag-ts)
 
 ```shell
